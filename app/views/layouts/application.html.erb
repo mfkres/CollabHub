@@ -11,6 +11,7 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/navigation' %>  <!-- Render the navigation bar from the partial file _navigation.html.erb -->
+    <%= yield %>                        <!-- Yield the main content -->
   </body>
 </html>

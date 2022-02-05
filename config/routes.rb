@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   root to: 'pages#index'
 
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
 
-  # /login redirects user to the devise/sessions/new.html.erb file which is the login page
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
   end
 
+  devise_scope :user do
+    get 'signup', to: 'devise/registrations#new'
+  end
+  
 end

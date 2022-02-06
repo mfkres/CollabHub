@@ -1,5 +1,4 @@
 require_relative "boot"
-
 require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
@@ -8,6 +7,9 @@ Bundler.require(*Rails.groups)
 
 module CollabHub
   class Application < Rails::Application
+    # don't load all helper files to all views because if they have the same name they might clash
+    config.action_controller.include_all_helpers = false
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
